@@ -11,7 +11,7 @@ api_key = st.secrets["GEMINI_API_KEY"]
 
 # 3. 初始化配置 Gemini 模型
 genai.configure(api_key=api_key)
-model = genai.GenerativeModel('gemini-1.5-pro') # 你在 AI Studio 中测试使用的模型名称
+model = genai.GenerativeModel('gemini-1.5-flash')
 
 # 4. 创建聊天输入框
 user_input = st.chat_input("请输入您的问题...")
@@ -25,4 +25,5 @@ if user_input:
     with st.chat_message("assistant"):
         with st.spinner("思考中..."): # 显示加载动画
             response = model.generate_content(user_input)
+
             st.write(response.text)
