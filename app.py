@@ -8,7 +8,7 @@ API_BASE_URL = "https://once.novai.su"
 # 2. 从 Streamlit 云端保险箱安全读取密钥 (不要加引号)
 API_KEY = st.secrets["THIRD_PARTY_API_KEY"] 
 # 3. 填入第三方网站支持的模型名称 (保留引号)
-MODEL_NAME = "gemini-2.0-flash" 
+MODEL_NAME = "[次]deepseek-v3.2-speciale" 
 # ==========================================
 
 st.set_page_config(page_title="我的 AI 助手", page_icon="🌟")
@@ -68,4 +68,5 @@ if user_input:
                     
             except Exception as e:
                 st.error(f"网络连接完全失败：\n{e}")
+
 
