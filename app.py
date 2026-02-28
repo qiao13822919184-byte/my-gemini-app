@@ -65,5 +65,5 @@ if user_input:
                     st.code(response.text) # 这行会把真实的报错原因打印出来！
                     
             except Exception as e:
-                st.error(f"网络连接完全失败：\n{e}")}")
+                st.error(f"网络连接完全失败：\n{e}")
 
