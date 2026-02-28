@@ -11,7 +11,7 @@ API_KEY = st.secrets["THIRD_PARTY_API_KEY"]
 MODEL_NAME = "[次]deepseek-v3.2-speciale" 
 # ==========================================
 
-st.set_page_config(page_title="我的 AI 助手", page_icon="🌟")
+st.set_page_config(page_title="你哥的 AI 助手", page_icon="🌟")
 def check_password():
     """返回 True 表示密码正确，返回 False 表示未解锁"""
     # 1. 如果用户在这个网页已经验证过密码，直接放行
@@ -19,7 +19,7 @@ def check_password():
         return True
 
     # 2. 如果还没验证，显示密码输入框
-    st.title("🔒 专属 AI 助手已加密")
+    st.title("🔒 你哥的助手已加密")
     pwd = st.text_input("请输入访问密码：", type="password") # type="password" 会让输入变成小黑点
     
     if pwd:
@@ -43,7 +43,7 @@ if not API_BASE_URL or not API_KEY or not MODEL_NAME:
     st.warning("⚠️ 请先在代码顶部填写配置。")
     st.stop()
 
-user_input = st.chat_input("请输入您的问题...")
+user_input = st.chat_input("请输入你哥的问题...")
 
 if user_input:
     with st.chat_message("user"):
@@ -93,6 +93,7 @@ if user_input:
                     
             except Exception as e:
                 st.error(f"网络连接完全失败：\n{e}")
+
 
 
 
