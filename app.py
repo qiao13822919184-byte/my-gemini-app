@@ -12,7 +12,32 @@ MODEL_NAME = "[次]deepseek-v3.2-speciale"
 # ==========================================
 
 st.set_page_config(page_title="我的 AI 助手", page_icon="🌟")
-st.title("🌟 专属 AI 助手 (诊断加强版)")
+def check_password():
+    """返回 True 表示密码正确，返回 False 表示未解锁"""
+    # 1. 如果用户在这个网页已经验证过密码，直接放行
+    if st.session_state.get("password_correct", False):
+        return True
+
+    # 2. 如果还没验证，显示密码输入框
+    st.title("🔒 专属 AI 助手已加密")
+    pwd = st.text_input("请输入访问密码：", type="password") # type="password" 会让输入变成小黑点
+    
+    if pwd:
+        # 去云端保险箱里核对密码
+        if pwd == st.secrets["APP_PASSWORD"]:
+            st.session_state["password_correct"] = True
+            st.rerun() # 密码正确，立刻刷新页面显示聊天界面
+        else:
+            st.error("❌ 密码错误，请重新输入！")
+            
+    return False
+
+# 检查密码，如果不通过，就让程序在这里停下，不加载后面的聊天代码
+if not check_password():
+    st.stop()
+# ------------------------------------------------
+# 🔐 核心密码锁逻辑 结束
+# ------------------------------------------------
 
 if not API_BASE_URL or not API_KEY or not MODEL_NAME:
     st.warning("⚠️ 请先在代码顶部填写配置。")
@@ -68,5 +93,6 @@ if user_input:
                     
             except Exception as e:
                 st.error(f"网络连接完全失败：\n{e}")
+
 
 
