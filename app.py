@@ -4,9 +4,9 @@ import requests
 # ==========================================
 # ⬇️ 请在下方引号内填写第三方网站提供的信息 ⬇️
 # ==========================================
-API_BASE_URL = "https://once.novai.su"  # 填入模型地址 (例如: "https://api.第三方网站.com/v1")
-API_KEY = st.secrets["THIRD_PARTY_API_KEY"]
-MODEL_NAME = "[次]gemini-2.5-flash"    # 填入模型名称 (例如: "gemini-2.0-flash" 或第三方网站要求填的名字)
+API_BASE_URL = ""  # 填入模型地址 (强烈建议检查是否包含 /v1 结尾)
+API_KEY = ""       # 填入密钥 
+MODEL_NAME = ""    # 填入模型名称 
 # ==========================================
 
 st.set_page_config(page_title="我的 AI 助手", page_icon="🌟")
@@ -66,6 +66,3 @@ if user_input:
                     
             except Exception as e:
                 st.error(f"网络连接完全失败：\n{e}")
-
-
-
