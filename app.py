@@ -5,7 +5,7 @@ import requests
 # ⬇️ 请在下方引号内填写第三方网站提供的信息 ⬇️
 # ==========================================
 API_BASE_URL = "https://once.novai.su"  # 填入模型地址 (例如: "https://api.第三方网站.com/v1")
-API_KEY = st.secrets["THIRD_PARTY_API_KEY"]
+API_KEY = st.secrets["GEMINI_API_KEY"]
 MODEL_NAME = "[次]gemini-2.5-flash"    # 填入模型名称 (例如: "gemini-2.0-flash" 或第三方网站要求填的名字)
 # ==========================================
 
@@ -66,4 +66,5 @@ if user_input:
                     
             except Exception as e:
                 st.error(f"网络连接完全失败：\n{e}")
+
 
